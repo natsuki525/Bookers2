@@ -1,0 +1,50 @@
+<header>
+	<div class="container">
+		<nav>
+			<span>Bookers</span>
+		</nav>
+		<nav>
+			<ul>
+				<li>
+					<a>Home</a>
+				</li>
+				<li>
+					<a>Users</a>
+				</li>
+				<li>
+					<a>Books</a>
+				</li>
+				<li>
+					<a>logout</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<body>
+	<div class="container">
+		<div class="">
+			<h2>Books</h2>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Opinion</th>
+						<th></th>
+					</tr>
+				<tbody>
+					<tr>
+						<% @books.each do |book| %>
+						<td></td>
+						<td><%= book.title %></td>
+						<td><%= book.body %></td>
+					</tr>
+					<% end %>
+				</tbody>
+				</thead>
+			</table>
+		</div>
+	</div>
+</body>
