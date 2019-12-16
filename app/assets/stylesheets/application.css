@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+ 	margin: 0;
+ 	padding: 0;
+ 	box-sizing: border-box;
+ }
+
+.container {
+	margin: 0 auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+h2{
+	font-size: 30px;
+}
+
+table {
+	width: 100%;
+	margin-bottom: 20px
+}
+thead {
+	display: table-header-group;
+	vertical-align: middle;
+}
+tr {
+	display: table-row;
+}
+table thead tr th {
+	vertical-align: bottom;
+	border-bottom: 2px solid #ddd;
+}
+
+tbody tr {
+	width: 150px;
+	height: 26px;
+}
+
+

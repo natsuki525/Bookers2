@@ -5,8 +5,9 @@ class BooksController < ApplicationController
 	end
 	# 投稿を保存
 	def create
-		book = Book.new(book_params)
-		book.save
+		@book = Book.new(book_params)
+		@book.user_id = current_user.id
+		@book.save
 		redirect_to books_path
 	end
 	# 投稿のリストを表示する画面を作る
