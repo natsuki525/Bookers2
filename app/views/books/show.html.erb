@@ -1,0 +1,42 @@
+<header>
+	<div class="container">
+		<nav>
+			<span>Bookers</span>
+		</nav>
+		<nav>
+			<ul>
+				<li>
+					<a>Home</a>
+				</li>
+				<li>
+					<a>Users</a>
+				</li>
+				<li>
+					<a>Books</a>
+				</li>
+				<li>
+					<a>logout</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<body>
+	<div class="container">
+		<div class="">
+			<h2>Book detail</h2>
+			<table class="table">
+				<tbody>
+					<tr>
+						<td></td>
+						<td><%= @book.title %></td>
+						<td><%= @book.body %></td>
+						<td>Edit</td>
+						<td>Destroy</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
