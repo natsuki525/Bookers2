@@ -12,7 +12,7 @@
 					<a>Users</a>
 				</li>
 				<li>
-					<a>Books</a>
+					<%= link_to 'Books', books_path %>
 				</li>
 				<li>
 					<a>logout</a>
@@ -42,6 +42,9 @@
 						</tr>
 					</tbody>
 				</table>
+				<% if @user.id == current_user.id %>
+					<p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
+				<% end %>
 			</div>
 		</div>
 		<div class="">
