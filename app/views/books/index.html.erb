@@ -6,7 +6,7 @@
 		<nav>
 			<ul>
 				<li>
-					<a>Home</a>
+      				<%= link_to 'Home', user_path(current_user.id) %>
 				</li>
 				<li>
 					<a>Users</a>
@@ -22,7 +22,7 @@
 	</div>
 </header>
 
-<body>
+<div class="body">
 	<div class="container">
 		<div class="">
 			<h2>Books</h2>
@@ -46,9 +46,10 @@
 						<td><%= book.body %></td>
 					</tr>
 					<% end %>
+					<%= paginate @books, class: "pagenate" %>
 				</tbody>
 				</thead>
 			</table>
 		</div>
 	</div>
-</body>
+</div>>

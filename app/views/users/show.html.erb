@@ -1,0 +1,76 @@
+<header>
+	<div class="container">
+		<nav>
+			<span>Bookers</span>
+		</nav>
+		<nav>
+			<ul>
+				<li>
+					<%= link_to 'Home', user_path(current_user.id) %>
+				</li>
+				<li>
+					<a>Users</a>
+				</li>
+				<li>
+					<a>Books</a>
+				</li>
+				<li>
+					<a>logout</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<div class="body">
+	<div class="container">
+		<div class="">
+			<div class="mypage">
+				<h2>User info</h2>
+				<table class="table">
+					<tbody>
+						<tr></tr>
+						<tr>
+							<th>name</th>
+							<th>
+								<%= @user.name %>
+							</th>
+						</tr>
+						<tr>
+							<th>introduction</th>
+							<th></th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="">
+			<div class="books">
+				<h2>Books</h2>
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Title</th>
+							<th>Opinion</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						<% @books.each do |book| %>
+							<td></td>
+							<td>
+								<%= link_to book_path(book.id) do %>
+									<%= book.title %>
+								<% end %>
+							</td>
+							<td><%= book.body %></td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

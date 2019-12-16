@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 	end
 	# 投稿のリストを表示する画面を作る
 	def index
-		@books = Book.all
+		@books = Book.page(params[:page]).reverse_order
 	end
 	# 投稿の詳細を表示する画面を作る
 	def show
