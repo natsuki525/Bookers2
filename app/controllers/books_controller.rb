@@ -1,4 +1,8 @@
 class BooksController < ApplicationController
+
+	#初期画面
+	def top
+	end
 	# 投稿画面を表示
 	def new
 		@book = Book.new

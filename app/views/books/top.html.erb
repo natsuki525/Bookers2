@@ -1,0 +1,52 @@
+<header>
+	<div class="container">
+		<nav>
+			<span>Bookers</span>
+		</nav>
+		<nav>
+			<ul>
+				<li>
+      				<%= link_to 'Home', root_path %>
+				</li>
+				<li>
+					About
+				</li>
+				<li>
+					<%= link_to 'sign up', new_user_registration_path %>
+				</li>
+				<li>
+					<%= link_to 'login', user_session_path %>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<body>
+	<div class="container">
+		<div class="">
+			<div class="top-message">
+				<h1>welcome to Bookers !!</h1>
+				<p>In Bookers,</p>
+				<p>you can share and exchage your opinions, inpressions, and emotions</p>
+				<p>about various books!</p>
+			</div>
+			<div class="button">
+				<div class="">
+					<p>
+						<%= link_to 'Log in', user_session_path %>
+					</p>
+					<p>
+						<%= link_to 'Sign Up', new_user_registration_path %>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<footer>
+	<div class="container">
+		<div class="">
+			<p>CopyRight Infratop.inc</p>
+		</div>
+	</div>
+</footer>

@@ -6,47 +6,49 @@
 		<nav>
 			<ul>
 				<li>
-					<a>Home</a>
+      				<%= link_to 'Home', user_path(current_user.id) %>
 				</li>
 				<li>
-					<a>Users</a>
+					<%= link_to 'Users', users_path %>
 				</li>
 				<li>
 					<a>Books</a>
 				</li>
 				<li>
-					<a>logout</a>
+					<%= link_to 'logout', destroy_user_session_path, method: :delete %>
 				</li>
 			</ul>
 		</nav>
 	</div>
 </header>
 
-<body>
+<div class="body">
 	<div class="container">
 		<div class="">
-			<h2>Book detail</h2>
-			<table class="table">
+			<h2>Users</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>image</th>
+						<th>name</th>
+						<th></th>
+					</tr>
 				<tbody>
 					<tr>
+						<% @users.each do |user| %>
 						<td>
 							<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-tumb" %>
 						</td>
-						<td><%= @book.title %></td>
-						<td><%= @book.body %></td>
 						<td>
-							<% if @book.user == current_user %>
-								<%= link_to "Edit", edit_book_path(@book.id) %>
-							<% end %>
+							<%= user.name %>
 						</td>
-						<td>
-							<% if @book.user == current_user %>
-								<%= link_to "Destroy", book_path(@book), method: :delete %>
-							<% end %>
-						</td>
+						<td></td>
 					</tr>
+					<% end %>
+					<%= paginate @books, class: "pagenate" %>
 				</tbody>
+				</thead>
 			</table>
 		</div>
 	</div>
-</body>
+</div>

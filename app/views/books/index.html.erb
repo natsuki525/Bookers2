@@ -9,13 +9,13 @@
       				<%= link_to 'Home', user_path(current_user.id) %>
 				</li>
 				<li>
-					<a>Users</a>
+					<%= link_to 'Users', users_path %>
 				</li>
 				<li>
-					<a>Books</a>
+					<%= link_to 'Books', books_path %>
 				</li>
 				<li>
-					<a>logout</a>
+					<%= link_to 'logout', destroy_user_session_path, method: :delete %>
 				</li>
 			</ul>
 		</nav>
@@ -37,7 +37,9 @@
 				<tbody>
 					<tr>
 						<% @books.each do |book| %>
-						<td></td>
+						<td>
+							<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-tumb" %>
+						</td>
 						<td>
 							<%= link_to book_path(book.id) do %>
 								<%= book.title %>
@@ -52,4 +54,4 @@
 			</table>
 		</div>
 	</div>
-</div>>
+</div>
