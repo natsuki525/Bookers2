@@ -1,37 +1,32 @@
-<header>
-	<div class="container">
-		<nav>
-			<span>Bookers</span>
-		</nav>
-		<nav>
-			<ul>
-				<li>
-      				<%= link_to 'Home', user_path(current_user.id) %>
-				</li>
-				<li>
-					<a>Users</a>
-				</li>
-				<li>
-					<a>Books</a>
-				</li>
-				<li>
-					<a>logout</a>
-				</li>
-			</ul>
-		</nav>
-	</div>
-</header>
 <div class="body">
 	<div class="container">
 		<h2>User info</h2>
-		<div class=form-body>
+		<% if @user.errors.any? %>
+        			<div id="error_explanation">
+          				<h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          				<ul>
+          					<% @user.errors.full_messages.each do |msg| %>
+            					<li><%= msg %></li>
+          					<% end %>
+          				</ul>
+        			</div>
+    			<% end %>
+		<div class="edit_user">
 		<%= form_for(@user) do |f| %>
-			<label class="name">name</label>
-			<%= f.text_field :name, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"name" %>
+			<div class="field">
+				<label class="name">Name</label>
+				<%= f.text_field :name, autofocus: true, class:"input", id:"inputEmail", placeholder:"name" %>
+			</div>
+			<div class="field">
+				<label class="image">Image</label>
+    			<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+    		</div>
+    		<div class="field">
+    			<label class="introduction">Introduction</label>
+    			<%= f.text_field :introduction, :size=>"30x60", autofocus: true, class:"introduction" %>
+    		</div>
+			<%= f.submit "Update User" %>
+		<% end %>
 		</div>
-		<label class="control-label sr-only" for="inputEmail">Image</label>
-    	<%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
-		<%= f.submit "Update User" %>
-	<% end %>
 	</div>
-</div>
+</body>

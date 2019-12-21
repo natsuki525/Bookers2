@@ -1,54 +1,37 @@
-<header>
-	<div class="container">
-		<nav>
-			<span>Bookers</span>
-		</nav>
-		<nav>
-			<ul>
-				<li>
-      				<%= link_to 'Home', user_path(current_user.id) %>
-				</li>
-				<li>
-					<%= link_to 'Users', users_path %>
-				</li>
-				<li>
-					<a>Books</a>
-				</li>
-				<li>
-					<%= link_to 'logout', destroy_user_session_path, method: :delete %>
-				</li>
-			</ul>
-		</nav>
-	</div>
-</header>
-
-<div class="body">
-	<div class="container">
-		<div class="">
-			<h2>Users</h2>
-			<table>
-				<thead>
-					<tr>
-						<th>image</th>
-						<th>name</th>
-						<th></th>
-					</tr>
-				<tbody>
-					<tr>
-						<% @users.each do |user| %>
-						<td>
-							<%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", class: "img-circle pull-left profile-tumb" %>
-						</td>
-						<td>
-							<%= user.name %>
-						</td>
-						<td></td>
-					</tr>
-					<% end %>
-					<%= paginate @books, class: "pagenate" %>
-				</tbody>
-				</thead>
-			</table>
+<body>
+	<div class="body">
+		<div class="container">
+			<div class="row">
+				<%= render 'books/list',books: @books %>
+				<div class="col-xs-9">
+					<h2>Users</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>image</th>
+							<th>name</th>
+							<th colspan="3"></th>
+						</tr>
+					</thead>
+						<tbody>
+							<tr>
+								<% @users.each do |user| %>
+								<td>
+									<%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", class: "img-circle pull-left profile-tumb" %>
+								</td>
+								<td>
+									<%= user.name %>
+								</td>
+								<td>
+									<%= link_to 'Show',user_path(user) %>
+								</td>
+							</tr>
+							<% end %>
+							<%= paginate @users, class: "pagenate" %>
+						</tbody>
+				</table>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>
+</body>
